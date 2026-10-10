@@ -4136,3 +4136,14 @@ dialog::backdrop {
     box-shadow: 0 0 20px #9bffe380;
   }
 }
+
+/* The same cursor trail follows a finger while touching the mobile page. */
+@media (hover: none), (pointer: coarse) {
+  .cursor, .cursor-dot, #particles { display: block !important; }
+  .cursor { width: 28px; height: 28px; background: #ae78ff12; transition: opacity .15s; }
+  .cursor-dot { transition: opacity .15s; }
+  .cursor.hover { width: 28px; height: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor, .cursor-dot, #particles { display: none !important; }
+}
