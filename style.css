@@ -4096,3 +4096,26 @@ dialog::backdrop {
 .contact-static>span:nth-child(2)>span {
   user-select: text
 }
+
+/* Touch screens use a brief tap glow instead of a mouse cursor. */
+@media (hover: none), (pointer: coarse) {
+  .cursor, .cursor-dot, #particles { display: none !important; }
+  body.cursor-ready, body.cursor-ready a, body.cursor-ready button { cursor: auto; }
+  .project:hover { transform: none; }
+  .project:hover .project-visual img { transform: none; }
+}
+.mobile-tap-glow {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #b892ff;
+  background: #ae78ff24;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1001;
+  animation: mobile-tap-fade 420ms ease-out forwards;
+}
+@keyframes mobile-tap-fade {
+  from { opacity: .8; transform: translate(-50%, -50%) scale(.6); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(1.6); }
+}
