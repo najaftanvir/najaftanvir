@@ -4119,3 +4119,20 @@ dialog::backdrop {
   from { opacity: .8; transform: translate(-50%, -50%) scale(.6); }
   to { opacity: 0; transform: translate(-50%, -50%) scale(1.6); }
 }
+
+/* Desktop card glow, tilt and artwork zoom activated by a mobile touch. */
+@media (hover: none), (pointer: coarse) {
+  .project.is-touch-active {
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-5px);
+    box-shadow: 0 15px 45px #ae78ff25, 0 0 0 1px #ae78ff65;
+    background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), #ae78ff18, transparent 65%);
+  }
+  .project.is-touch-active .project-visual img {
+    transform: scale(1.055);
+    filter: saturate(1.15);
+  }
+  .project.is-touch-active .project-arrow {
+    transform: translate(3px, -3px);
+    box-shadow: 0 0 20px #9bffe380;
+  }
+}
