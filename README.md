@@ -1,4 +1,6 @@
-## Hi there 👋
+# Hey, I'm Najaf Tanvir!
+
+I'm a Unity Game Developer from Lahore, Pakistan, with 1+ years of experience working on Android and iOS games. I enjoy building gameplay, player and vehicle controls, and interactive systems using Unity and C#.
 
 <!--
 **najaftanvir/najaftanvir** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
