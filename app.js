@@ -335,3 +335,40 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
     glow.addEventListener('animationend', () => glow.remove(), { once: true });
   }, { passive: true });
 }
+
+// Reuse the desktop card treatment for touch without blocking page scrolling.
+if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  let touchedCard = null, touchReset = null;
+  const resetTouchCard = () => {
+    clearTimeout(touchReset);
+    if (!touchedCard) return;
+    touchedCard.classList.remove('is-touch-active');
+    ['--tilt-x', '--tilt-y', '--pointer-x', '--pointer-y'].forEach(key => touchedCard.style.removeProperty(key));
+    touchedCard = null;
+  };
+  const lightTouchCard = e => {
+    const rect = touchedCard.getBoundingClientRect();
+    const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    touchedCard.style.setProperty('--pointer-x', x * 100 + '%');
+    touchedCard.style.setProperty('--pointer-y', y * 100 + '%');
+    touchedCard.style.setProperty('--tilt-x', (0.5 - y) * 6 + 'deg');
+    touchedCard.style.setProperty('--tilt-y', (x - 0.5) * 6 + 'deg');
+  };
+  document.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'touch') return;
+    resetTouchCard();
+    touchedCard = e.target.closest('.project');
+    if (!touchedCard) return;
+    touchedCard.classList.add('is-touch-active');
+    lightTouchCard(e);
+  }, { passive: true });
+  document.addEventListener('pointermove', e => {
+    if (e.pointerType === 'touch' && touchedCard) lightTouchCard(e);
+  }, { passive: true });
+  document.addEventListener('pointerup', e => {
+    if (e.pointerType === 'touch') touchReset = setTimeout(resetTouchCard, 700);
+  }, { passive: true });
+  document.addEventListener('pointercancel', resetTouchCard, { passive: true });
+  addEventListener('scroll', resetTouchCard, { passive: true });
+}
