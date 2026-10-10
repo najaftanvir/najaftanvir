@@ -220,7 +220,8 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
     cy = py,
     seen = false,
     particles = [],
-    last = 0;
+    last = 0,
+    touchInput = false;
 
   function resize() {
     canvas.width = innerWidth;
@@ -230,6 +231,7 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
   addEventListener('resize', resize);
   const moveCursor = e => {
     if (e.pointerType !== 'mouse' && !(e.pointerType === 'touch' && e.buttons)) return;
+    touchInput = e.pointerType === 'touch';
     px = e.clientX;
     py = e.clientY;
     if (!seen) {
@@ -244,6 +246,7 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
         x: px,
         y: py,
         life: 1,
+        touch: touchInput,
         vx: (Math.random() - .5) * 1.5,
         vy: Math.random() * 1.1
       });
@@ -293,11 +296,13 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles = particles.filter(p => p.life > 0);
     particles.forEach(p => {
-      p.life -= .04;
+      p.life -= p.touch ? .022 : .04;
       p.x += p.vx;
       p.y += p.vy;
-      ctx.fillStyle = `rgba(174,120,255,${p.life*.65})`;
-      ctx.fillRect(p.x, p.y, 2, 2)
+      ctx.fillStyle = `rgba(174,120,255,${p.life*(p.touch ? .95 : .65)})`;
+      ctx.shadowColor = '#b892ff';
+      ctx.shadowBlur = p.touch ? 8 : 0;
+      ctx.fillRect(p.x, p.y, p.touch ? 4 : 2, p.touch ? 4 : 2)
     });
     requestAnimationFrame(animate)
   }
