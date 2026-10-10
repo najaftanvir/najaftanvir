@@ -4147,3 +4147,15 @@ dialog::backdrop {
 @media (prefers-reduced-motion: reduce) {
   .cursor, .cursor-dot, #particles { display: none !important; }
 }
+
+/* A wider luminous ring remains visible around the finger. */
+@media (hover: none), (pointer: coarse) {
+  .cursor, .cursor.hover {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #b892ff;
+    background: #ae78ff18;
+    box-shadow: 0 0 16px #ae78ff99, inset 0 0 10px #ae78ff44;
+  }
+  .cursor-dot { width: 6px; height: 6px; box-shadow: 0 0 10px #9bffe3; }
+}
