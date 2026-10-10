@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0b0a10">
+    <meta name="description" content="Najaf Tanvir, Unity game developer in Lahore. Android and iOS games, gameplay systems, and Logic Land.">
+    <title>Najaf Tanvir | Unity Game Developer</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <header>
+      <a href="#home" class="wordmark" aria-label="Najaf Tanvir home">N<span>˙</span>T<span class="wordmark-small">GAME DEV</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#systems">Skills</a>
+        <a href="#work">Projects</a>
+      </nav>
+      <a class="contact-link" href="#contact">LET’S TALK <span>↗</span>
+      </a>
+      <button class="mobile-menu" aria-label="Open menu" aria-expanded="false">☰</button>
+    </header>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="hero-top">
+          <span>
+            <i class="live-dot"></i> UNITY GAME DEVELOPER</span>
+          <span>LAHORE, PAKISTAN <span class="muted">/</span> ANDROID + iOS</span>
+        </div>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <div class="eyebrow">HI, I’M</div>
+            <h1>NAJAF<br>
+              <span class="outline">TANVIR.</span>
+            </h1>
+            <div class="hero-role">Unity Game Developer<span>✦</span>
+            </div>
+            <p>I’m a Unity game developer in Lahore.<br>I build Android and iOS games with C#—from off-road adventures to responsive gameplay systems.</p>
+            <div class="hero-actions">
+              <a class="hero-work-link" href="#work">
+                <span class="hero-work-label">EXPLORE MY WORK</span>
+                <span class="hero-work-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="text-link" href="assets/Najaf-Tanvir-CV.pdf" download>DOWNLOAD CV ↗</a>
+            </div>
+          </div>
+          <div class="portrait-stage">
+            <div class="portrait-halo" aria-hidden="true"></div>
+            <button class="portrait-switch" aria-label="Switch portrait of Najaf Tanvir" aria-pressed="false">
+              <img class="portrait-image portrait-default" src="assets/najaf-avatar.png" alt="Illustrated portrait of Najaf Tanvir in a maroon hijab and teal gown">
+              <img class="portrait-image portrait-alternate" src="assets/najaf-hover-portrait.png" alt="" aria-hidden="true">
+            </button>
+            <span class="portrait-caption">CREATING WORLDS, ONE SYSTEM AT A TIME.</span>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <span>SCROLL TO EXPLORE <b>↓</b>
+          </span>
+          <span class="mono">C# / UNITY / MOBILE</span>
+        </div>
+      </section>
+      <div class="ticker" aria-hidden="true">
+        <div>GAMEPLAY PROGRAMMING <b>✦</b> VEHICLE &amp; PLAYER CONTROLS <b>✦</b> MOBILE GAMES <b>✦</b> UNITY &amp; C# <b>✦</b> GAMEPLAY PROGRAMMING <b>✦</b> VEHICLE &amp; PLAYER CONTROLS <b>✦</b> MOBILE GAMES <b>✦</b> UNITY &amp; C# <b>✦</b>
+        </div>
+      </div>
+      <section class="about section intro-about" id="about">
+        <div class="eyebrow reveal">01 / THE DEVELOPER</div>
+        <div class="intro-layout">
+          <div class="intro-copy reveal">
+            <h2>BEHIND<br>
+              <span class="outline">THE GAMES.</span>
+            </h2>
+            <p>I’m Najaf Tanvir, a Unity game developer based in Lahore, Pakistan. I work on Android and iOS games, building gameplay, controls, UI and the interactions that make a game feel responsive.</p>
+            <a class="text-link" href="assets/Najaf-Tanvir-CV.pdf" target="_blank" rel="noopener">READ MY CV ↗</a>
+          </div>
+          <div class="background-details">
+            <article class="background-row reveal">
+              <span class="small-label">EXPERIENCE</span>
+              <span class="experience-years">1+ YEARS EXPERIENCE</span>
+              <h3>Unity Game Developer</h3>
+              <p>Survival Tech Valley · Lahore</p>
+              <p>Commercial mobile game development across simulation, exploration and action projects.</p>
+            </article>
+            <article class="background-row reveal">
+              <span class="small-label">EDUCATION</span>
+              <h3>BS Computer Science</h3>
+              <p>Lahore College for Women University</p>
+              <p>2021–2025 · Lahore, Pakistan</p>
+            </article>
+            <div class="fyp-entry">
+              <span class="small-label">FYP / FINAL-YEAR PROJECT</span>
+              <button id="logic-gallery-button" class="fyp-link">
+                <img src="assets/logic-land-fyp-logo.png" alt="Logic Land project logo" width="84" height="84" loading="eager">
+                <span>
+                  <strong>Logic Land ↗</strong>
+                  <span>Android educational puzzle game · Team project</span>
+                </span>
+              </button>
+              <p>Puzzles, character selection, hints, progression and game UI for children aged 8–12.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="systems section" id="systems">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">02 / TECHNICAL SKILLS</div>
+            <h2>THE SYSTEMS<br>
+              <span class="accent">BEHIND THE PLAY.</span>
+            </h2>
+          </div>
+          <p>Hands-on Unity development.<br>Gameplay first. Details matter.</p>
+        </div>
+        <div class="system-list">
+          <article class="system-row reveal">
+            <span class="row-index">01</span>
+            <h3>Controllers &amp; movement</h3>
+            <p>RCC vehicle controls, FPS / TPS movement and shooter controls.</p>
+            <span class="row-symbol">↗</span>
+          </article>
+          <article class="system-row reveal">
+            <span class="row-index">02</span>
+            <h3>Unity, C# &amp; gameplay AI</h3>
+            <p>Unity and C# development, gameplay AI, interaction systems, missions and level progression.</p>
+            <span class="row-symbol">↗</span>
+          </article>
+          <article class="system-row reveal">
+            <span class="row-index">03</span>
+            <h3>UI, animation &amp; maps</h3>
+            <p>Unity UI, DOTween transitions and feedback, HNS minimap integration, camera flow, tutorials, and cutscenes.</p>
+            <span class="row-symbol">↗</span>
+          </article>
+          <article class="system-row reveal">
+            <span class="row-index">04</span>
+            <h3>Ads &amp; purchase hooks</h3>
+            <p>Calling ads and reward callbacks through existing AdMob, AppLovin MAX and Unity LevelPlay packages; connecting in-app purchase calls to game UI.</p>
+            <span class="row-symbol">↗</span>
+          </article>
+        </div>
+      </section>
+      <div class="hero-cast-bridge" aria-label="Interactive game heroes">
+        <div class="hero-cast-track">
+          <div class="hero-cast-group">
+            <div class="hero-slot">
+              <button class="hero-mascot hero-adventurer" aria-label="Adventurer: Sword flourish" title="Sword flourish" style="--hero-color:#ffd782;--sprite-x:0%;--sprite-y:0%;--hero-delay:-0.0s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-adventurer-isolated.png" alt="" loading="eager" width="1199" height="1312">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-witch" aria-label="Witch: Magic spell" title="Magic spell" style="--hero-color:#c59aff;--sprite-x:50%;--sprite-y:0%;--hero-delay:-0.4s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-witch-isolated.png" alt="" loading="eager" width="1187" height="1326">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-shooter" aria-label="Blocky boy: Blaster recoil" title="Blaster recoil" style="--hero-color:#85e4ff;--sprite-x:100%;--sprite-y:0%;--hero-delay:-0.8s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-shooter-isolated.png" alt="" loading="eager" width="1024" height="1536">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-ranger" aria-label="Ranger: Arrow shot" title="Arrow shot" style="--hero-color:#a4ed91;--sprite-x:0%;--sprite-y:100%;--hero-delay:-1.2000000000000002s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-ranger-isolated.png" alt="" loading="eager" width="1237" height="1271">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-knight" aria-label="Knight: Shield guard" title="Shield guard" style="--hero-color:#ff9fce;--sprite-x:50%;--sprite-y:100%;--hero-delay:-1.6s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-knight-isolated.png" alt="" loading="eager" width="1113" height="1414">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-streetboy" aria-label="Streetwear boy: Peace-sign sway" title="Peace-sign sway" style="--hero-color:#ffb679;--sprite-x:100%;--sprite-y:100%;--hero-delay:-2.0s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-streetboy-isolated.png" alt="" loading="eager" width="1024" height="1536">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-girlshooter" aria-label="Blocky girl: Blaster charge" title="Blaster charge" style="--hero-color:#c7a2ff;--hero-delay:-2.8s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-girlshooter-isolated.png" alt="" loading="eager" width="1024" height="1536">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+          <div class="hero-cast-group">
+            <div class="hero-slot">
+              <button class="hero-mascot hero-adventurer" aria-label="Adventurer: Sword flourish" title="Sword flourish" style="--hero-color:#ffd782;--sprite-x:0%;--sprite-y:0%;--hero-delay:-0.0s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-adventurer-isolated.png" alt="" loading="eager" width="1199" height="1312">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-witch" aria-label="Witch: Magic spell" title="Magic spell" style="--hero-color:#c59aff;--sprite-x:50%;--sprite-y:0%;--hero-delay:-0.4s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-witch-isolated.png" alt="" loading="eager" width="1187" height="1326">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-shooter" aria-label="Blocky boy: Blaster recoil" title="Blaster recoil" style="--hero-color:#85e4ff;--sprite-x:100%;--sprite-y:0%;--hero-delay:-0.8s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-shooter-isolated.png" alt="" loading="eager" width="1024" height="1536">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-ranger" aria-label="Ranger: Arrow shot" title="Arrow shot" style="--hero-color:#a4ed91;--sprite-x:0%;--sprite-y:100%;--hero-delay:-1.2000000000000002s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-ranger-isolated.png" alt="" loading="eager" width="1237" height="1271">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-knight" aria-label="Knight: Shield guard" title="Shield guard" style="--hero-color:#ff9fce;--sprite-x:50%;--sprite-y:100%;--hero-delay:-1.6s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-knight-isolated.png" alt="" loading="eager" width="1113" height="1414">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-streetboy" aria-label="Streetwear boy: Peace-sign sway" title="Peace-sign sway" style="--hero-color:#ffb679;--sprite-x:100%;--sprite-y:100%;--hero-delay:-2.0s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-streetboy-isolated.png" alt="" loading="eager" width="1024" height="1536">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="hero-slot">
+              <button class="hero-mascot hero-girlshooter" aria-label="Blocky girl: Blaster charge" title="Blaster charge" style="--hero-color:#c7a2ff;--hero-delay:-2.8s">
+                <span class="hero-sprite" aria-hidden="true">
+                  <img src="assets/hero-girlshooter-isolated.png" alt="" loading="eager" width="1024" height="1536">
+                </span>
+                <span class="hero-fx" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="work section" id="work">
+        <div class="collection-intro">
+          <div class="collection-copy reveal">
+            <div class="eyebrow">03 / SELECTED PROJECTS</div>
+            <h2>THE GAME<br>
+              <span class="outline">COLLECTION.</span>
+            </h2>
+            <p>Games I’ve worked on.<br>Explore the games through their store links.</p>
+          </div>
+          <div class="collection-stage hero-stage" aria-label="Selected game artwork">
+            <div class="stage-ring" aria-hidden="true"></div>
+            <a class="float-game float-animal" href="https://play.google.com/store/apps/details?id=com.gamebus.wild.animal.life.simulator" target="_blank" rel="noopener">
+              <img src="assets/animal-9.jpg" alt="Wild Animal Life Simulator">
+              <span>WILD ANIMAL LIFE <b>↗</b>
+              </span>
+            </a>
+            <a class="float-game float-rv" href="https://play.google.com/store/apps/details?id=com.trends.games.runto.escape.survival.games" target="_blank" rel="noopener">
+              <img src="assets/rv-9.jpg" alt="RV Camper">
+              <span>RV CAMPER <b>↗</b>
+              </span>
+            </a>
+            <a class="float-game float-zombie" href="https://play.google.com/store/apps/details?id=com.gc.lockdown.zombies.shooter.games" target="_blank" rel="noopener">
+              <img src="assets/zombie-9.jpg" alt="Lockdown Zombies Shooter">
+              <span>LOCKDOWN ZOMBIES <b>↗</b>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="active" data-filter="all">ALL GAMES <span>08</span>
+          </button>
+          <button data-filter="simulation">SIMULATION</button>
+          <button data-filter="action">ACTION</button>
+        </div>
+        <div id="project-grid" class="project-grid"></div>
+      </section>
+      <section class="contact section" id="contact">
+        <div class="eyebrow reveal">04 / START A CONVERSATION</div>
+        <h2 class="reveal">LET’S MAKE<br>
+          <span class="contact-title">SOMETHING PLAYABLE.</span>
+        </h2>
+        <p class="contact-intro reveal">Have a game project or an opportunity in mind? Get in touch.</p>
+        <div class="contact-channels">
+          <div class="contact-channel reveal contact-static">
+            <span class="channel-icon" aria-hidden="true">@</span>
+            <span>
+              <strong>EMAIL</strong>
+              <span>najaftanvir@gmail.com</span>
+            </span>
+          </div>
+          <div class="contact-channel reveal contact-static">
+            <span class="channel-icon" aria-hidden="true">
+              <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2z"></path>
+              </svg>
+            </span>
+            <span>
+              <strong>PHONE</strong>
+              <span>+92 322 4679388</span>
+            </span>
+          </div>
+          <a class="contact-channel reveal" href="https://www.linkedin.com/in/najaf-tanvir-07a6b3270/" target="_blank" rel="noopener">
+            <span class="channel-icon linkedin-icon" aria-hidden="true">in</span>
+            <span>
+              <strong>LINKEDIN</strong>
+              <span>Connect with Najaf Tanvir</span>
+            </span>
+            <span class="channel-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="contact-cv">
+          <a href="assets/Najaf-Tanvir-CV.pdf" download>DOWNLOAD CV ↗</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>© <span id="year"></span> NAJAF TANVIR</span>
+      <span>BUILT AROUND THE LOVE OF GAMES.</span>
+      <a href="#home">BACK TO TOP ↑</a>
+    </footer>
+    <dialog id="project-dialog">
+      <button class="dialog-close" aria-label="Close project">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
