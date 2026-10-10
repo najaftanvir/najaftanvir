@@ -209,8 +209,7 @@ addEventListener('scroll', () => {
 }, {
   passive: true
 });
-if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)')
-  .matches) {
+if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
   const cursor = document.querySelector('.cursor'),
     dot = document.querySelector('.cursor-dot'),
     canvas = document.querySelector('#particles'),
@@ -230,7 +229,7 @@ if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(pref
   resize();
   addEventListener('resize', resize);
   addEventListener('pointermove', e => {
-    if (e.pointerType !== 'mouse') return;
+    if (e.pointerType !== 'mouse' && !(e.pointerType === 'touch' && e.buttons)) return;
     px = e.clientX;
     py = e.clientY;
     if (!seen) {
@@ -254,6 +253,25 @@ if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(pref
   }, {
     passive: true
   });
+  const hideFingerCursor = e => {
+    if (e.pointerType !== 'touch') return;
+    cursor.style.opacity = dot.style.opacity = '0';
+    document.body.classList.remove('cursor-ready');
+    cursor.classList.remove('hover');
+    seen = false;
+  };
+  addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'touch') return;
+    px = cx = e.clientX;
+    py = cy = e.clientY;
+    seen = true;
+    cursor.classList.remove('hover');
+    cursor.style.left = dot.style.left = px + 'px';
+    cursor.style.top = dot.style.top = py + 'px';
+    cursor.style.opacity = dot.style.opacity = '1';
+  }, { passive: true });
+  addEventListener('pointerup', hideFingerCursor, { passive: true });
+  addEventListener('pointercancel', hideFingerCursor, { passive: true });
   document.addEventListener('pointerleave', () => {
     cursor.style.opacity = dot.style.opacity = '0';
     document.body.classList.remove('cursor-ready');
@@ -320,21 +338,6 @@ document.querySelectorAll('.hero-mascot').forEach(hero => hero.addEventListener(
   hero.classList.add('is-active');
   setTimeout(() => hero.classList.remove('is-active'), 1800)
 }));
-
-// Touch feedback stays brief and never follows the finger while scrolling.
-if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
-  document.addEventListener('pointerup', e => {
-    if (e.pointerType !== 'touch') return;
-    const target = e.target.closest('a, button, .portrait-switch, .hero-mascot');
-    if (!target) return;
-    const glow = document.createElement('span');
-    glow.className = 'mobile-tap-glow';
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-    document.body.appendChild(glow);
-    glow.addEventListener('animationend', () => glow.remove(), { once: true });
-  }, { passive: true });
-}
 
 // Reuse the desktop card treatment for touch without blocking page scrolling.
 if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
