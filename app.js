@@ -228,7 +228,7 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
   }
   resize();
   addEventListener('resize', resize);
-  addEventListener('pointermove', e => {
+  const moveCursor = e => {
     if (e.pointerType !== 'mouse' && !(e.pointerType === 'touch' && e.buttons)) return;
     px = e.clientX;
     py = e.clientY;
@@ -250,9 +250,12 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
       last = performance.now()
     }
     cursor.classList.toggle('hover', !!e.target.closest('a,button'))
-  }, {
-    passive: true
-  });
+  };
+  addEventListener('pointermove', moveCursor, { passive: true });
+  addEventListener('touchmove', e => {
+    const finger = e.touches[0];
+    if (finger) moveCursor({ pointerType: 'touch', buttons: 1, clientX: finger.clientX, clientY: finger.clientY, target: e.target });
+  }, { passive: true });
   const hideFingerCursor = e => {
     if (e.pointerType !== 'touch') return;
     cursor.style.opacity = dot.style.opacity = '0';
@@ -271,6 +274,8 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
     cursor.style.opacity = dot.style.opacity = '1';
   }, { passive: true });
   addEventListener('pointerup', hideFingerCursor, { passive: true });
+  addEventListener('touchend', () => hideFingerCursor({ pointerType: 'touch' }), { passive: true });
+  addEventListener('touchcancel', () => hideFingerCursor({ pointerType: 'touch' }), { passive: true });
   addEventListener('pointercancel', hideFingerCursor, { passive: true });
   document.addEventListener('pointerleave', () => {
     cursor.style.opacity = dot.style.opacity = '0';
