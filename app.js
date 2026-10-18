@@ -52,6 +52,24 @@ const projects = [{
   ],
   credit: 'Artwork from the linked Google Play listing, currently titled Mountain Trail Drive Adventure.'
 }, {
+  "id": "leaf",
+  "title": "Leaf Sweeper Simulator",
+  "category": "simulation",
+  "platform": "ANDROID",
+  "kind": "CLEANING / SIMULATION",
+  "desc": "Leaf-cleaning gameplay and interactive tools.",
+  "image": "leaf-sweeper-cover.png",
+  "contribution": [],
+  "summary": "A leaf-cleaning simulation project developed in Unity and C#.",
+  "tech": "Unity · C# · Android",
+  "links": [
+    [
+      "GOOGLE PLAY",
+      "https://play.google.com/store/apps/details?id=com.titanhub.leaf.sweeper.simulator"
+    ]
+  ],
+  "credit": "Project artwork provided by Najaf Tanvir."
+}, {
   id: 'hunt',
   publisher: 'Turbo Games LTD',
   title: 'Wild Life Hunting Simulator',
@@ -136,24 +154,6 @@ const projects = [{
     ['GOOGLE PLAY', play('com.gc.lockdown.zombies.shooter.games')]
   ],
   credit: 'Store screenshot: Lockdown Zombies Shooter.'
-}, {
-  "id": "leaf",
-  "title": "Leaf Sweeper Simulator",
-  "category": "simulation",
-  "platform": "ANDROID",
-  "kind": "CLEANING / SIMULATION",
-  "desc": "Leaf-cleaning gameplay and interactive tools.",
-  "image": "leaf-sweeper-cover.png",
-  "contribution": [],
-  "summary": "A leaf-cleaning simulation project developed in Unity and C#.",
-  "tech": "Unity · C# · Android",
-  "links": [
-    [
-      "GOOGLE PLAY",
-      "https://play.google.com/store/apps/details?id=com.titanhub.leaf.sweeper.simulator"
-    ]
-  ],
-  "credit": "Project artwork provided by Najaf Tanvir."
 }, ];
 const storeIcon = name => name === 'GOOGLE PLAY' ?
   `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#58c9fa" d="M3 2.5v19L13.5 12z"/><path fill="#57d88a" d="M3 2.5L16.8 9.9 13.5 12z"/><path fill="#ffcf55" d="M16.8 9.9l3.5 1.9c.3.2.3.4 0 .6l-3.5 1.9L13.5 12z"/><path fill="#ff6b7a" d="M3 21.5l13.8-7.2L13.5 12z"/></svg>` :
@@ -165,7 +165,7 @@ let lastFocus = null;
 
 function render(filter = 'all') {
   grid.innerHTML = projects.filter(p => filter === 'all' || p.category === filter).map(p =>
-    `<article class="project reveal"><a class="project-visual" href="${p.links[0][1]}" target="_blank" rel="noopener" aria-label="Open ${p.title} store listing"><span class="project-number">${String(projects.indexOf(p)+1).padStart(2,'0')}</span><img src="assets/${p.image}" alt="${p.title} store artwork" loading="lazy"><span class="project-arrow">↗</span></a><div class="project-meta"><span>${p.kind}</span><span>${p.platform}</span></div><h3>${p.title}</h3>${p.publisher?`<p class="project-publisher">STORE PUBLISHER / ${p.publisher}</p>`:""}<div class="project-links">${p.links.map(([name,url])=>`<a class="store-icon" href="${url}" target="_blank" rel="noopener" aria-label="${name==='GOOGLE PLAY'?'Open on Google Play':'Open on the App Store'}" title="${name==='GOOGLE PLAY'?'Google Play':'App Store'}">${storeIcon(name)}</a>`).join('')}</div>${p.id==='prison'?'<p class="project-note">Worked on the second gameplay.</p>':''}</article>`
+    `<article class="project reveal${p.id==='leaf'?' project-leaf':''}"><a class="project-visual" href="${p.links[0][1]}" target="_blank" rel="noopener" aria-label="Open ${p.title} store listing"><span class="project-number">${String(projects.indexOf(p)+1).padStart(2,'0')}</span><img src="assets/${p.image}" alt="${p.title} store artwork" loading="lazy"><span class="project-arrow">↗</span></a><div class="project-meta"><span>${p.kind}</span><span>${p.platform}</span></div><h3>${p.title}</h3>${p.publisher?`<p class="project-publisher">STORE PUBLISHER / ${p.publisher}</p>`:""}<div class="project-links">${p.links.map(([name,url])=>`<a class="store-icon" href="${url}" target="_blank" rel="noopener" aria-label="${name==='GOOGLE PLAY'?'Open on Google Play':'Open on the App Store'}" title="${name==='GOOGLE PLAY'?'Google Play':'App Store'}">${storeIcon(name)}</a>`).join('')}</div>${p.id==='prison'?'<p class="project-note">Worked on the second gameplay.</p>':''}</article>`
     ).join('');
   observe();
 }
