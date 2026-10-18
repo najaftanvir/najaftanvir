@@ -4160,17 +4160,8 @@ dialog::backdrop {
   .cursor-dot { width: 6px; height: 6px; box-shadow: 0 0 10px #9bffe3; }
 }
 
-/* Keep the square Leaf Sweeper artwork fully visible in the shared card frame. */
-.project-leaf .project-visual::before {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  background: url('assets/leaf-sweeper-cover.png') center / cover;
-  filter: blur(18px) brightness(.5);
-}
+/* Fill the Leaf Sweeper card like the other games, keeping her face visible. */
 .project-leaf .project-visual img {
-  position: relative;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center 12%;
 }
-.project-leaf:is(:hover, .is-touch-active) .project-visual img { transform: none; }
